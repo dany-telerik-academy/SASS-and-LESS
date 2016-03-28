@@ -1,0 +1,49 @@
+$selected-thumb-outline:blue;
+$image-container-background:lightyellow;
+$image-container-border:1px dashed gray;
+
+a { 
+	cursor: pointer;
+}
+
+.gallerycontainer{
+	position: relative;
+	/*Add a height attribute and set to largest image's height to prevent overlaying*/
+}
+
+.thumbnail{
+	img{
+		border: 2px solid white;
+		margin: 0 5px 5px 0;
+	}
+
+	&:focus{
+		outline: none;
+
+		&>img{
+			border: 2px solid $selected-thumb-outline;
+		}
+		span{ /*CSS for enlarged image*/
+			visibility: visible;
+			top: 90px;
+			left: 0; /*position where enlarged image should offset horizontally */
+			z-index: 50;
+		}
+	}
+	span{ /*CSS for enlarged image*/
+		position: absolute;
+		background-color: $image-container-background;
+		padding: 5px;
+		left: -1000px;
+		border: $image-container-border;
+		visibility: hidden;
+		color: black;
+		text-decoration: none;
+	
+
+		img{ /*CSS for enlarged image*/
+			border-width: 0;
+			padding: 2px;
+		}
+	}
+}
